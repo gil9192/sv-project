@@ -1,0 +1,17 @@
+csrc/*
+simv.daidir/*
+simv*
+ucli.key
+*.vcd
+verdiLog/*
+.inter.fsdb.tbsim
+novas.conf
+novas.rc
+verdi_config_file
+vcs_comp.log
+novas_dump.log
+.fsm.sch.verilog.xml
+vdCovLog
+coverage.vdb
+inter_1.fsdb
+via.rc
