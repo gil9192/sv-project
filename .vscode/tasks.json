@@ -2,27 +2,66 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Run",
+            "label": "Compile",
             "type": "shell",
-            "command": "vcs -full64 -licqueue '-timescale=1ns/1ns' '+vcs+flush+all' '+warn=all' '-sverilog' design.sv testbench.sv  && ./simv +vcs+lic+wait",
+            "command": "vcs -full64 -licqueue -l vcs_comp.log -kdb -debug_access+all -timescale=1ns/1ns +vcs+flush+all +warn=all -cm line+cond+tgl+branch -cm_dir ./coverage -cm_name design_coverage -cm_log coverage.log -sverilog -f build.list",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
                 "focus": false,
-                "panel": "shared",
+                "panel": "shared", 
                 "showReuseMessage": false,
                 "clear": true
             }
         },
         {
-            "label": "Run w/Seed",
+            "label": "Simulate",
             "type": "shell",
-            "command": "vcs -full64 -licqueue '-timescale=1ns/1ns' '+vcs+flush+all' '+warn=all' '-sverilog' design.sv testbench.sv  && ./simv +vcs+lic+wait +ntb_random_seed=${input:seed}",
+            "command": "./simv +vcs+lic+wait +MSG_VERB=HIGH +ntb_random_seed_automatic",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
                 "focus": false,
-                "panel": "shared",
+                "panel": "shared", 
+                "showReuseMessage": false,
+                "clear": true
+            }
+        },
+        {
+            "label": "Simulate w/Seed",
+            "type": "shell",
+            "command": "./simv +vcs+lic+wait +MSG_VERB=HIGH +ntb_random_seed=${input:seed}",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared", 
+                "showReuseMessage": false,
+                "clear": true
+            }
+        },
+        {
+            "label": "Show Coverage",
+            "type": "shell",
+            "command": "setenv DISPLAY localhost:10.0; ./simv +vcs+lic+wait -verdi -cov -covdir coverage.vdb",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared", 
+                "showReuseMessage": false,
+                "clear": true
+            }
+        },
+        {
+            "label": "Debug in Verdi",
+            "type": "shell",
+            "command": "setenv DISPLAY localhost:10.0; ./simv +vcs+lic+wait +ntb_random_seed=${input:seed} -verdi",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared", 
                 "showReuseMessage": false,
                 "clear": true
             }
