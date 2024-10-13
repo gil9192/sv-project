@@ -6,3 +6,8 @@ SystemVerilog Project template
 - https://marketplace.visualstudio.com/items?itemName=mshr-h.VerilogHDL
 ### Task runner (allows to add custom buttons for simulation/compilation tasks)
 - https://marketplace.visualstudio.com/items?itemName=SanaAjani.taskrunnercode
+
+## To run on VCS server:
+```
+git clone git@github.com:gil9192/sv-project.git <my_project>
+```
