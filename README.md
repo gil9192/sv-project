@@ -9,5 +9,5 @@ SystemVerilog Project template
 
 ## To run on VCS server:
 ```
-git clone git@github.com:gil9192/sv-project.git <my_project>
+git clone https://github.com/gil9192/sv-project.git <my_project>
 ```
