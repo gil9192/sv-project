@@ -43,7 +43,7 @@
         {
             "label": "Show Coverage",
             "type": "shell",
-            "command": "setenv DISPLAY localhost:10.0; xhost +local:; ./simv +vcs+lic+wait -verdi -cov -covdir coverage.vdb",
+            "command": "setenv DISPLAY localhost:10.0; ./simv +vcs+lic+wait -verdi -cov -covdir coverage.vdb",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -56,7 +56,7 @@
         {
             "label": "Debug in Verdi",
             "type": "shell",
-            "command": "setenv DISPLAY localhost:10.0; xhost +local:; ./simv +vcs+lic+wait +ntb_random_seed=${input:seed} -verdi",
+            "command": "setenv DISPLAY localhost:10.0; ./simv +vcs+lic+wait +ntb_random_seed=${input:seed} -verdi",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -69,7 +69,7 @@
         {
             "label": "Wave",
             "type": "shell",
-            "command": "setenv DISPLAY localhost:10.0; xhost +local:; gtkwave dump.vcd",
+            "command": "setenv DISPLAY localhost:10.0; gtkwave dump.vcd",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
